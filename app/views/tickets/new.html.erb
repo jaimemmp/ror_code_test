@@ -1,0 +1,28 @@
+new ticket
+<%= form_for @ticket do |f| %>
+
+   <div class="field">
+        <%= f.label :transport %>
+        <%= select_tag "transport", options_for_select([ "Plane", "Train", 'Ship', 'Bus' ], "Plane") %>
+    </div>
+
+    <div class="field">
+        <%= f.label :origin_id %>
+        <%= collection_select(:place, :origin_id, Place.all.collect, :id, :name) %>
+    </div>
+    
+    <div class="field">
+        <%= f.label :destiny_id %>
+        <%= collection_select(:destiny, :destiny_id, Place.all.collect, :id, :name) %>
+    </div>
+
+    <div class="field">
+        <%= f.label :seat %>
+        <%= f.text_field :seat %>
+    </div>
+    
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+
+<% end %>

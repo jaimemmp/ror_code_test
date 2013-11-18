@@ -1,0 +1,12 @@
+places index<br>
+
+<br>
+<%= link_to 'new place', new_place_path %>
+<ul>
+    <% @places.each do |place| %>
+        <li>
+            <%= place.name %>
+            <%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+    <% end %>
+</ul>

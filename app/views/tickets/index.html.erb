@@ -1,0 +1,15 @@
+tickets index<br>
+
+<br>
+<%= link_to 'new ticket', new_ticket_path %>
+<ul>
+    <% @@ordered_tickets.each do |ticket| %>
+        <li>
+            <%= ticket.transport %> 
+            From <%= ticket.origin.name %>
+            to <%= ticket.destiny.name %>
+             (seat: <%= ticket.seat %> )
+            <%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+    <% end %>
+</ul>
